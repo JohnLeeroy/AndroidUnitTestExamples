@@ -1,5 +1,4 @@
 # Test Patron Buying a Drink
----
 ### Setup
 We create Matt to test the Patron class.  
 PatronHelper is a child of the Patron class which helps reveal unaccesable properties for our tests.  
