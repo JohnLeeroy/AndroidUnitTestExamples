@@ -2,41 +2,48 @@ package com.jli.cafeunittestexample;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by johnli on 12/6/15.
  */
 public class Cafe {
 
-    protected HashMap<String, DrinkInterface> mMenu;
-    protected HashSet<Patron> mCustomers;
+    //Members
+    protected Map<String, DrinkInterface> mMenu;
+    protected Set<Patron> mCustomers;
 
-    public Cafe(){
+    //Constructor
+    public Cafe() {
         mMenu = new HashMap<>();
         mCustomers = new HashSet<>();
     }
 
+    //Public Methods
     public void addDrinkItemToMenu(DrinkInterface drink) {
         mMenu.put(drink.getName(), drink);
     }
-    public void addNewCustomer(Patron patron){
-        mCustomers.add(patron);
+
+    public boolean addNewCustomer(Patron patron) {
+        return mCustomers.add(patron);
     }
 
-    public DrinkInterface getDrink(String name){
-        return mMenu.get(name);
+    public DrinkInterface getDrink(String name) {
+        DrinkInterface drink = mMenu.get(name);
+        return drink;
     }
 
-    public Patron getCustomer(String name){
-        for(Patron patron : mCustomers){
-            if(patron.getName().equals(name))
+    public Patron getCustomer(String name) {
+        for (Patron patron : mCustomers) {
+            if (patron.getName().equals(name))
                 return patron;
         }
         return null;
     }
 
-    public DrinkInterface sellDrink(String name){
-        DrinkInterface newDrink = mMenu.get(name).getCopy();
+    public DrinkInterface sellDrink(String name) {
+        DrinkInterface newDrink = getDrink(name).getCopy();
         return newDrink;
     }
 }

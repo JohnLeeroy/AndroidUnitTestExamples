@@ -19,6 +19,10 @@ public class PatronHelper extends Patron{
         super.setCash(cash);
     }
 
+    public float getCash() {
+        return mCash;
+    }
+
     public ArrayList<DrinkInterface> getDrinksInPossession() {
         return mDrinksInPossession;
     }
