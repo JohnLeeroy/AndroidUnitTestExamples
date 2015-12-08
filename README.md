@@ -1,3 +1,5 @@
+
+
 # Test Patron Buying a Drink
 ### Setup
 We create Matt to test the Patron class.  
@@ -37,10 +39,9 @@ When getName is called, it will return the value of targetDrinkName.
 ```
 
 ### All Together Now
-Summary
-This creates a Nuka Cola mocked drink.
-Makes sure the mocked cafe returns Nuka Cola.
-Check if Matt has a Nuka Cola soft drink.
+This creates a Nuka Cola mocked drink.  
+Makes sure the mocked cafe returns Nuka Cola.  
+Check if Matt has a Nuka Cola soft drink.  
 ```java
     @Test
     public void BuyDrinkWithEnoughMoney() throws Patron.NotEnoughMoneyException {
@@ -57,5 +58,5 @@ Check if Matt has a Nuka Cola soft drink.
         assert(mMatt.mDrinksInPossession.get(0) == nukaColaMock);
     }
 ```
-
-
+---
+### Checkout more examples in the codebase
