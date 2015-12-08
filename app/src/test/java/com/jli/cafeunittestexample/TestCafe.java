@@ -66,10 +66,11 @@ public class TestCafe {
     }
 
     @Test
-    public void CantAddDuplicateDrinks(){
-        mCafeHelper.addDrinkItemToMenu(mCoffee);
-        mCafeHelper.addDrinkItemToMenu(mCoffee);
-        mCafeHelper.addDrinkItemToMenu(mCola);
+    public void AddDuplicateDrinks(){
+        assertNull(mCafeHelper.addDrinkItemToMenu(mCoffee));
+        assertEquals(mCoffee, mCafeHelper.addDrinkItemToMenu(mCoffee));
+        assertNull(mCafeHelper.addDrinkItemToMenu(mCola));
+        assertEquals(mCola, mCafeHelper.addDrinkItemToMenu(mCola));
         assert (mCafeHelper.getMenuSize() == 2);
     }
 

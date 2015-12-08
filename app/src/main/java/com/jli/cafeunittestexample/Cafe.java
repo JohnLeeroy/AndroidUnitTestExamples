@@ -21,8 +21,8 @@ public class Cafe {
     }
 
     //Public Methods
-    public void addDrinkItemToMenu(DrinkInterface drink) {
-        mMenu.put(drink.getName(), drink);
+    public DrinkInterface addDrinkItemToMenu(DrinkInterface drink) {
+        return mMenu.put(drink.getName(), drink);
     }
 
     public boolean addNewCustomer(Patron patron) {

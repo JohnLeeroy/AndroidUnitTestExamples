@@ -48,6 +48,7 @@ public class TestPatron {
         DrinkInterface nukaColaMock = getMockedDrink(targetDrinkName, 4);
 
         //return mock drink when sellDrink is called
+        when(mCafe.getDrink(targetDrinkName)).thenReturn(nukaColaMock);
         when(mCafe.sellDrink(targetDrinkName)).thenReturn(nukaColaMock);
 
         mMatt.enterCafe(mCafe);
