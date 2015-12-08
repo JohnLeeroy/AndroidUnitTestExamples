@@ -1,6 +1,4 @@
-
-
-# Test Patron Buying a Drink
+# Example : Buying a Drink
 ### Setup
 We create Matt to test the Patron class.  
 PatronHelper is a child of the Patron class which helps reveal unaccesable properties for our tests.  
@@ -28,7 +26,7 @@ We also create a mocked Cafe object.  It emulates the class without knowing abou
 ```
 Creates a mocked or dummy DrinkInterface object without copying any of the functionality.
 ```java
-        DrinkInterface nukaColaMock = mock(DrinkInterface.class);
+    DrinkInterface nukaColaMock = mock(DrinkInterface.class);
 ```
 When getCost is called, it will return the value of cost.  
 When getName is called, it will return the value of targetDrinkName.
