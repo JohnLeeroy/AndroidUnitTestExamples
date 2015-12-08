@@ -45,7 +45,7 @@ public class TestPatron {
     public void BuyDrinkWithEnoughMoney() throws Patron.NotEnoughMoneyException {
         //create mocked drink
         String targetDrinkName = "Nuka Cola";
-        DrinkInterface nukaColaMock = getMockedDrink(targetDrinkName);
+        DrinkInterface nukaColaMock = getMockedDrink(targetDrinkName, 4);
 
         //return mock drink when sellDrink is called
         when(mCafe.sellDrink(targetDrinkName)).thenReturn(nukaColaMock);
@@ -61,25 +61,23 @@ public class TestPatron {
     public void BuyDrinkWithoutEnoughMoney() throws Patron.NotEnoughMoneyException {
         //create mocked drink
         String targetDrinkName = "Nuka Cola";
-        DrinkInterface nukaColaMock = getMockedDrink(targetDrinkName);
+        DrinkInterface nukaColaMock = getMockedDrink(targetDrinkName, 0);
 
         //set mock drink cost value to max
         when(nukaColaMock.getCost()).thenReturn(Float.MAX_VALUE);
 
-        //return mock drink when sellDrink is called
+        //return mock drink when a drink is a required return
+        when(mCafe.getDrink(targetDrinkName)).thenReturn(nukaColaMock);
         when(mCafe.sellDrink(targetDrinkName)).thenReturn(nukaColaMock);
 
         mMatt.enterCafe(mCafe);
-        //try to purchase a drink and fail
         mMatt.purchaseDrinkFromCafe(targetDrinkName);
     }
 
-    DrinkInterface getMockedDrink(String targetDrinkName) {
+    DrinkInterface getMockedDrink(String targetDrinkName, float cost) {
         DrinkInterface nukaColaMock = mock(DrinkInterface.class);
-        float nukaColaCost = 4f;
         //set return values for properties
-        when(mCafe.getDrink(targetDrinkName)).thenReturn(nukaColaMock);
-        when(nukaColaMock.getCost()).thenReturn(nukaColaCost);
+        when(nukaColaMock.getCost()).thenReturn(cost);
         when(nukaColaMock.getName()).thenReturn(targetDrinkName);
         return nukaColaMock;
     }
